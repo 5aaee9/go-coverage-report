@@ -27,7 +27,7 @@ set -euo pipefail
 SCRIPT_DIR="$(dirname -- "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Get coverage for all packages in the current directory; store next to script.
-go test ./... -coverpkg "$(go list)/..." -coverprofile "$SCRIPT_DIR/coverage.out"
+go test ./... -coverpkg "./..." -coverprofile "$SCRIPT_DIR/coverage.out"
 
 if [[ "${INPUT_REPORT-true}" == "true" ]]; then
 	# Create an HTML report; store next to script.
